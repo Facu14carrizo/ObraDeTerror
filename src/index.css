@@ -1,0 +1,210 @@
+/* Estilos Globales & Sistema de Diseño: La Prueba del Hambre */
+:root {
+  --font-horror-title: 'Cinzel', serif;
+  --font-horror-accent: 'Creepster', cursive;
+  --font-body: 'Outfit', sans-serif;
+
+  --bg-primary: #07090d;
+  --bg-secondary: #0c1017;
+  --bg-card: rgba(18, 23, 33, 0.75);
+  --bg-card-hover: rgba(28, 35, 50, 0.85);
+
+  --blood-red: #ff2a2a;
+  --fire-red: #ff3b19;
+  --fire-orange: #ff7700;
+  --fire-yellow: #ffb703;
+  --dark-crimson: #630505;
+
+  --text-main: #f0f2f5;
+  --text-muted: #9ba3b4;
+  --text-glow: rgba(255, 60, 25, 0.65);
+
+  --border-fire: rgba(255, 75, 25, 0.35);
+  --border-card: rgba(255, 255, 255, 0.08);
+
+  --shadow-fire: 0 0 25px rgba(255, 60, 25, 0.35), 0 0 50px rgba(255, 120, 0, 0.15);
+  --shadow-red: 0 0 30px rgba(220, 20, 20, 0.4);
+
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: radial-gradient(circle at 50% 0%, #200505 0%, #080a0e 65%, #030406 100%);
+  background-attachment: fixed;
+}
+
+/* Niebla y grano cinematográfico */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 50, 0, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(180, 0, 0, 0.08) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Efecto de Viñeta Oscura */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.85), inset 0 0 200px rgba(0, 0, 0, 0.6);
+  z-index: 99;
+}
+
+/* Scrollbar personalizado terror */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05070a;
+}
+::-webkit-scrollbar-thumb {
+  background: #4a0c0c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fire-red);
+}
+
+/* Utilidades de Texto */
+.font-creep {
+  font-family: var(--font-horror-accent);
+  letter-spacing: 2px;
+}
+
+.font-cinzel {
+  font-family: var(--font-horror-title);
+  letter-spacing: 1.5px;
+}
+
+.text-gradient-fire {
+  background: linear-gradient(180deg, #fff7ed 0%, #ffaa00 40%, #ff3b19 75%, #a50b0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(255, 70, 0, 0.6));
+}
+
+.text-blood {
+  color: var(--blood-red);
+  text-shadow: 0 0 12px rgba(255, 42, 42, 0.7);
+}
+
+/* Botones con pulso de fuego */
+.btn-primary-horror {
+  background: linear-gradient(135deg, #d81f1f 0%, #ff5500 50%, #900a0a 100%);
+  background-size: 200% auto;
+  color: #fff;
+  font-family: var(--font-horror-title);
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid #ffa352;
+  border-radius: 6px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 0 20px rgba(255, 60, 25, 0.4), inset 0 0 10px rgba(255, 230, 150, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary-horror {
+  background: rgba(18, 23, 33, 0.7);
+  backdrop-filter: blur(10px);
+  color: #f0f2f5;
+  font-family: var(--font-horror-title);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 120, 0, 0.45);
+  border-radius: 6px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 60, 20, 0.1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary-horror:hover {
+    background-position: right center;
+    box-shadow: 0 0 35px rgba(255, 60, 25, 0.8), 0 0 60px rgba(255, 120, 0, 0.4);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .btn-secondary-horror:hover {
+    background: rgba(45, 12, 12, 0.8);
+    border-color: var(--fire-orange);
+    box-shadow: 0 0 20px rgba(255, 60, 25, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-primary-horror:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 15px rgba(255, 60, 25, 0.5);
+}
+
+.btn-secondary-horror:active {
+  background: rgba(45, 12, 12, 0.9);
+  transform: scale(0.98);
+}
+
+/* Animaciones */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 20px rgba(255, 60, 20, 0.8));
+  }
+  20%, 24%, 55% {
+    opacity: 0.65;
+    filter: drop-shadow(0 0 5px rgba(255, 60, 20, 0.3));
+  }
+}
+
+.flicker-effect {
+  animation: flicker 4s infinite alternate;
+}
+
+@keyframes pulseFog {
+  0% { transform: translateY(0) scale(1); opacity: 0.25; }
+  50% { transform: translateY(-15px) scale(1.04); opacity: 0.4; }
+  100% { transform: translateY(0) scale(1); opacity: 0.25; }
+}
+
+.pulse-fog {
+  animation: pulseFog 8s ease-in-out infinite;
+}

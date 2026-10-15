@@ -1,0 +1,179 @@
+.horror-lore {
+  position: relative;
+  padding: 100px 24px;
+  background: linear-gradient(180deg, #06080c 0%, #0a0d14 50%, #07090e 100%);
+  z-index: 5;
+}
+
+.lore-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-header {
+  margin-bottom: 50px;
+}
+
+.section-tag {
+  display: inline-block;
+  color: var(--fire-orange);
+  font-size: 1.35rem;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+  text-shadow: 0 0 10px rgba(255, 119, 0, 0.4);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.section-sub {
+  color: #94a3b8;
+  font-size: 1.05rem;
+  margin-top: 8px;
+}
+
+.title-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--fire-red), transparent);
+  margin: 16px auto 0;
+  box-shadow: 0 0 10px var(--fire-red);
+}
+
+/* Story Card */
+.lore-story-card {
+  position: relative;
+  background: rgba(15, 20, 30, 0.7);
+  border: 1px solid rgba(255, 60, 20, 0.25);
+  border-radius: 16px;
+  padding: 45px 50px;
+  margin-bottom: 90px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.story-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 50, 0, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.story-quote {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  color: #ffb703;
+  margin-bottom: 24px;
+  line-height: 1.4;
+  border-left: 4px solid var(--fire-red);
+  padding-left: 20px;
+  text-shadow: 0 0 15px rgba(255, 120, 0, 0.3);
+}
+
+.story-p {
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: #cbd5e1;
+  margin-bottom: 18px;
+}
+
+.story-p:last-child {
+  margin-bottom: 0;
+}
+
+/* Personajes */
+.characters-section {
+  padding-top: 30px;
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.character-card {
+  background: rgba(14, 18, 27, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 30px 24px;
+  position: relative;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .character-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 70, 20, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 60, 20, 0.2);
+  }
+}
+
+.char-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 50, 0, 0.12);
+  border: 1px solid rgba(255, 70, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fire-orange);
+  margin-bottom: 20px;
+}
+
+.char-name {
+  font-size: 1.45rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.char-role {
+  font-size: 1rem;
+  color: var(--fire-red);
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+.char-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.char-trait {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  color: #e2e8f0;
+}
+
+.char-trait svg {
+  color: var(--fire-yellow);
+}
+
+@media (max-width: 768px) {
+  .lore-story-card {
+    padding: 30px 20px;
+  }
+}
