@@ -1,8 +1,16 @@
 .horror-shows {
-  padding: 100px 24px;
+  padding: 80px 24px;
   background: #07090e;
   position: relative;
   z-index: 5;
+}
+
+.horror-shows .section-title {
+  font-size: clamp(1.45rem, 5vw, 2.5rem);
+  letter-spacing: 1.5px;
+  max-width: 850px;
+  margin: 0 auto 6px;
+  line-height: 1.25;
 }
 
 .shows-container {
@@ -13,15 +21,15 @@
 .shows-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 28px;
-  margin-bottom: 40px;
+  gap: 24px;
+  margin-bottom: 30px;
 }
 
 .show-card {
   background: rgba(15, 20, 30, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 28px 24px;
+  border-radius: 14px;
+  padding: 24px 22px;
   transition: all 0.35s ease;
   cursor: pointer;
   display: flex;
@@ -32,7 +40,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .show-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
     border-color: rgba(255, 75, 25, 0.45);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 60, 20, 0.2);
   }
@@ -45,16 +53,15 @@
 }
 
 .show-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .show-special {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #ff9d00;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
+  line-height: 1.3;
+  display: block;
 }
 
 .show-status-pill {
@@ -304,6 +311,19 @@
 }
 
 @media (max-width: 768px) {
+  .horror-shows {
+    padding: 60px 16px;
+  }
+
+  .shows-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .show-card {
+    padding: 20px 16px;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
   }

@@ -81,9 +81,32 @@ export default function Footer({ onOpenTickets }) {
 
         <div className="footer-bottom">
           <p>© 2026 La Prueba del Hambre - Obra Teatral. Todos los derechos reservados.</p>
-          <p className="footer-disclaimer">
-            Diseñado para amantes del terror. Advertencia: No recomendado para personas con afecciones cardíacas severas o epilepsia fotosensible.
-          </p>
+          <div className="footer-developer">
+            <span>Desarrollado por</span>
+            <a 
+              href="https://waveframe.com.ar/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="developer-link"
+              title="Visitar WaveFrame Studio"
+            >
+              <strong className="developer-name">WaveFrame Studio</strong>
+              <div className="waveframe-3d-wrapper">
+                <model-viewer
+                  src="/3D/waveframelogo3dmodel.glb"
+                  alt="WaveFrame Studio 3D Logo"
+                  auto-rotate
+                  rotation-per-second="45deg"
+                  interaction-prompt="none"
+                  disable-zoom
+                  disable-pan
+                  camera-controls="false"
+                  shadow-intensity="0"
+                  style={{ width: '28px', height: '28px', pointerEvents: 'none' }}
+                />
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

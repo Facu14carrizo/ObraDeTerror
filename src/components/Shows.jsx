@@ -67,9 +67,6 @@ export default function Shows({ onBookShow }) {
               >
                 <div className="show-header">
                   <span className="show-special font-creep">{show.special}</span>
-                  <span className={`show-status-pill ${show.remaining <= 10 ? 'urgent' : ''}`}>
-                    {show.status}
-                  </span>
                 </div>
 
                 <div className="show-date-group">

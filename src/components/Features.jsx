@@ -1,5 +1,5 @@
 import React from 'react';
-import { EyeOff, Sparkles, Volume2, Users, HeartPulse, Flame } from 'lucide-react';
+import { EyeOff, HeartPulse, Flame } from 'lucide-react';
 import './Features.css';
 
 export default function Features() {
@@ -23,6 +23,16 @@ export default function Features() {
 
   return (
     <section id="experiencia" className="horror-features">
+      {/* Silueta colosal de La Bestia con ojos incandescentes de fondo */}
+      <div className="features-beast-bg">
+        <img 
+          src="/assets/beast.png" 
+          alt="Presencia de la bestia" 
+          className="features-beast-img" 
+        />
+        <div className="features-beast-overlay"></div>
+      </div>
+
       <div className="features-container">
         <div className="section-header text-center">
           <span className="section-tag font-creep">EL MONTAJE</span>
@@ -35,10 +45,12 @@ export default function Features() {
             const Icon = p.icon;
             return (
               <div key={idx} className="feature-card">
-                <div className="feature-icon-wrapper">
-                  <Icon size={28} />
+                <div className="feature-card-header">
+                  <h3 className="feature-title font-cinzel">{p.title}</h3>
+                  <div className="feature-icon-wrapper">
+                    <Icon size={20} />
+                  </div>
                 </div>
-                <h3 className="feature-title font-cinzel">{p.title}</h3>
                 <p className="feature-desc">{p.desc}</p>
               </div>
             );

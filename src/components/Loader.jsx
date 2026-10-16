@@ -22,8 +22,6 @@ export default function Loader({ onFinish }) {
       
       <div className="loader-center-content">
         <div className="loader-icon-wrapper">
-          <div className="loader-fire-ring"></div>
-          <div className="loader-fire-pulse"></div>
           <img 
             src="/assets/beastIcon.png" 
             alt="La Bestia" 

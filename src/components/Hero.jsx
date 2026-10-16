@@ -1,39 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Calendar, Clock, MapPin, Flame, AlertTriangle } from 'lucide-react';
 import './Hero.css';
 
 export default function Hero({ onOpenTickets }) {
-  // Cuenta regresiva para Noche de estreno
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  useEffect(() => {
-    // Fecha objetivo: Sábado 24 de Octubre a las 20:00 hs
-    const targetDate = new Date('2026-10-24T20:00:00').getTime();
-
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000),
-        });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section id="hero" className="horror-hero">
       {/* Fondo con la imagen del Flyer integrado en blur dramático */}
@@ -112,32 +81,6 @@ export default function Hero({ onOpenTickets }) {
                 <MapPin size={16} />
                 <span>Como llegar</span>
               </a>
-            </div>
-
-            {/* Contador de tiempo siniestro */}
-            <div className="countdown-box">
-              <span className="countdown-title font-cinzel">EL HAMBRE DESPIERTA EN:</span>
-              <div className="countdown-grid">
-                <div className="countdown-item">
-                  <span className="num font-cinzel">{String(timeLeft.days).padStart(2, '0')}</span>
-                  <span className="lbl">DÍAS</span>
-                </div>
-                <div className="countdown-sep">:</div>
-                <div className="countdown-item">
-                  <span className="num font-cinzel">{String(timeLeft.hours).padStart(2, '0')}</span>
-                  <span className="lbl">HORAS</span>
-                </div>
-                <div className="countdown-sep">:</div>
-                <div className="countdown-item">
-                  <span className="num font-cinzel">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                  <span className="lbl">MIN</span>
-                </div>
-                <div className="countdown-sep">:</div>
-                <div className="countdown-item">
-                  <span className="num font-cinzel">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                  <span className="lbl">SEG</span>
-                </div>
-              </div>
             </div>
 
             <div className="hero-cta-group">

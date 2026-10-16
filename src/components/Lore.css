@@ -1,13 +1,69 @@
+:root {
+  /* ========================================================= */
+  /* CONTROLES DE TAMAÑO Y POSICIÓN DE LA BESTIA (beast.png)  */
+  /* Modifica estos valores a tu gusto:                       */
+  /* ========================================================= */
+  --beast-size-desktop: 780px;
+  /* Tamaño en computadoras / pantallas grandes */
+  --beast-size-mobile: 440px;
+  /* Tamaño en celulares / pantallas móviles */
+  --beast-top-offset: -55px;
+  /* Altura en escritorio (subida para que la cara quede centrada tras el título) */
+  --beast-top-offset-mobile: 45px;
+  /* Altura en celulares (subida para ver la cara y ojos rojos perfectamente) */
+}
+
 .horror-lore {
   position: relative;
-  padding: 100px 24px;
+  padding: 110px 24px 100px;
   background: linear-gradient(180deg, #06080c 0%, #0a0d14 50%, #07090e 100%);
   z-index: 5;
+  overflow: hidden;
+}
+
+/* La Bestia Colosal acechando en PNG puro sincronizada con el scroll */
+.lore-beast-stalker {
+  position: absolute;
+  top: var(--beast-top-offset);
+  left: 0;
+  width: var(--beast-size-desktop);
+  pointer-events: none;
+  z-index: 1;
+  /* Pasa por detrás del título y contenido (z-index: 2) */
+  will-change: transform, opacity;
+  transition: transform 0.05s linear, opacity 0.1s ease-out;
+}
+
+/* Halo de luz roja radial que se difumina orgánicamente sin bordes cortados */
+.lore-beast-ambient-light {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 30, 0, 0.45) 0%, rgba(200, 15, 0, 0.22) 40%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.lore-beast-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+  /* Resplandor sutil cercano para mantener bordes orgánicos limpios sin cortes rectos */
+  filter: drop-shadow(0 0 16px rgba(255, 30, 0, 0.9)) drop-shadow(0 0 28px rgba(255, 80, 0, 0.45));
 }
 
 .lore-container {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .text-center {
@@ -92,22 +148,239 @@
   margin-bottom: 0;
 }
 
+/* Palabras clave estilizadas con identidad de la obra */
+.lore-highlight-amber {
+  color: #ffb703;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 183, 3, 0.35);
+}
+
+.lore-highlight-fire {
+  color: #ff7700;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 119, 0, 0.4);
+}
+
+.lore-highlight-blood {
+  color: #ff3333;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 12px rgba(255, 51, 51, 0.45);
+}
+
+.lore-highlight-scouts {
+  color: #ffffff;
+  font-weight: 800;
+  border-bottom: 1px dashed rgba(255, 183, 3, 0.6);
+  padding-bottom: 1px;
+}
+
+.lore-highlight-forest {
+  color: #94d2bd;
+  font-style: italic;
+  text-shadow: 0 0 8px rgba(148, 210, 189, 0.25);
+}
+
 /* Personajes */
 .characters-section {
   padding-top: 30px;
 }
 
+/* Banner de la Tropa de Frente con Linternas */
+.troop-banner-wrapper {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Anclaje para asegurar alineación estricta de coordenadas */
+}
+
+.troop-lights-glow {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 120px;
+  background: radial-gradient(ellipse at center, rgba(255, 235, 180, 0.28) 0%, rgba(255, 120, 0, 0.14) 40%, transparent 75%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Nombres sutiles y cinematográficos sobre las cabezas */
+.troop-names-row {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.troop-head-name {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: #ffca7a;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.95), 0 0 14px rgba(255, 100, 0, 0.5);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 140, 20, 0.45);
+  padding: 0 4px 2px;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.troop-head-name::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ff8800;
+  box-shadow: 0 0 6px #ff7700;
+}
+
+.pos-edgar {
+  left: 23.5%;
+}
+
+.pos-anabel {
+  left: 41.5%;
+}
+
+.pos-ruben {
+  left: 60.5%;
+}
+
+.pos-horacio {
+  left: 79.5%;
+}
+
+.troop-banner-img {
+  width: 100%;
+  max-width: 780px;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 20px rgba(255, 240, 200, 0.25));
+  transition: transform 0.4s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .troop-banner-wrapper:hover .troop-banner-img {
+    transform: scale(1.02);
+  }
+}
+
+.troop-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(0deg, #0a0d14 15%, transparent 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Destellos ópticos perfectamente centrados en el foco de cada linterna */
+.troop-flashlight-flare {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 220, 160, 0.7) 30%, transparent 70%);
+  pointer-events: none;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  animation: flashlightFlicker 3.2s infinite ease-in-out;
+}
+
+.flare-1 {
+  width: 80px;
+  height: 80px;
+  top: 48%;
+  left: 22.8%;
+  animation-delay: 0.1s;
+}
+
+.flare-2 {
+  width: 80px;
+  height: 80px;
+  top: 55.5%;
+  left: 41.6%;
+  animation-delay: 0.8s;
+}
+
+.flare-3 {
+  width: 85px;
+  height: 85px;
+  top: 57.5%;
+  left: 62.4%;
+  animation-delay: 0.4s;
+}
+
+.flare-4 {
+  width: 82px;
+  height: 82px;
+  top: 49.5%;
+  left: 81.6%;
+  animation-delay: 1.2s;
+}
+
+@keyframes flashlightFlicker {
+
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 250, 220, 0.85));
+  }
+
+  24% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  48% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+
+  65% {
+    opacity: 0.92;
+    transform: translate(-50%, -50%) scale(1.12);
+    filter: drop-shadow(0 0 16px rgba(255, 240, 180, 1));
+  }
+
+  80% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+/* Grilla y tarjetas de personajes optimizadas y compactas */
 .characters-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
+  gap: 18px;
 }
 
 .character-card {
   background: rgba(14, 18, 27, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 30px 24px;
+  border-radius: 12px;
+  padding: 18px 18px 16px;
   position: relative;
   transition: all 0.35s ease;
   backdrop-filter: blur(8px);
@@ -117,63 +390,149 @@
 
 @media (hover: hover) and (pointer: fine) {
   .character-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     border-color: rgba(255, 70, 20, 0.5);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 60, 20, 0.2);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8), 0 0 18px rgba(255, 60, 20, 0.2);
   }
 }
 
+.char-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.char-identity {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .char-badge {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
   background: rgba(255, 50, 0, 0.12);
   border: 1px solid rgba(255, 70, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--fire-orange);
-  margin-bottom: 20px;
+  flex-shrink: 0;
+  margin-bottom: 0;
 }
 
 .char-name {
-  font-size: 1.45rem;
+  font-size: 1.22rem;
   color: #fff;
-  margin-bottom: 4px;
+  line-height: 1.1;
+  margin-bottom: 2px;
 }
 
 .char-role {
-  font-size: 1rem;
+  font-size: 0.88rem;
   color: var(--fire-red);
-  letter-spacing: 1.5px;
-  margin-bottom: 16px;
+  letter-spacing: 1.2px;
+  line-height: 1.1;
 }
 
 .char-desc {
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 0.88rem;
+  line-height: 1.5;
   color: #94a3b8;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
   flex-grow: 1;
 }
 
 .char-trait {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.04);
   border-radius: 6px;
-  padding: 8px 12px;
-  font-size: 0.82rem;
+  padding: 6px 10px;
+  font-size: 0.78rem;
   color: #e2e8f0;
 }
 
 .char-trait svg {
   color: var(--fire-yellow);
+  flex-shrink: 0;
 }
 
+/* Optimización Responsive Móvil */
 @media (max-width: 768px) {
+  .horror-lore {
+    padding: 85px 16px 60px;
+  }
+
+  .lore-beast-stalker {
+    width: var(--beast-size-mobile);
+    top: var(--beast-top-offset-mobile);
+  }
+
   .lore-story-card {
-    padding: 30px 20px;
+    padding: 24px 18px;
+    margin-bottom: 50px;
+  }
+
+  .troop-banner-wrapper {
+    margin-bottom: 22px;
+  }
+
+  .troop-names-row {
+    top: 6px;
+  }
+
+  .troop-head-name {
+    font-size: 0.54rem;
+    letter-spacing: 1.5px;
+    padding: 0 2px 1px;
+    opacity: 0.8;
+  }
+
+  .troop-head-name::after {
+    width: 2px;
+    height: 2px;
+    bottom: -3px;
+  }
+
+  /* Ajuste de escala exacto para linternas en móvil */
+  .flare-1,
+  .flare-2,
+  .flare-3,
+  .flare-4 {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 0 8px rgba(255, 240, 180, 0.8));
+  }
+
+  .troop-lights-glow {
+    height: 80px;
+    filter: blur(14px);
+  }
+
+  .troop-bottom-fade {
+    height: 45px;
+  }
+
+  .characters-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .character-card {
+    padding: 16px 16px 14px;
+  }
+
+  .char-name {
+    font-size: 1.15rem;
+  }
+
+  .char-desc {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
   }
 }
