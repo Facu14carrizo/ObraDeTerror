@@ -90,9 +90,13 @@ export default function Lore() {
       >
         <div className="lore-beast-ambient-light"></div>
         <img 
-          src="/assets/beast.png" 
+          src="/assets/beast.webp" 
           alt="La Bestia acechando en el bosque" 
           className="lore-beast-img" 
+          loading="lazy"
+          decoding="async"
+          width="780"
+          height="600"
         />
       </div>
 
@@ -140,9 +144,13 @@ export default function Lore() {
             </div>
 
             <img 
-              src="/assets/TropaFrente.png" 
+              src="/assets/TropaFrente.webp" 
               alt="La Patrulla Scout: Edgar, Anabel, Rubén y Horacio" 
               className="troop-banner-img"
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="675"
             />
             <div className="troop-bottom-fade"></div>
             <div className="troop-flashlight-flare flare-1"></div>

@@ -50,9 +50,12 @@ export default function Navbar({ onOpenTickets }) {
           <div className="brand-beast-container">
             <div className="brand-beast-aura"></div>
             <img 
-              src="/assets/beastIcon.png" 
+              src="/assets/beastIcon.webp" 
               alt="La Bestia" 
               className="brand-beast-icon" 
+              width="58"
+              height="58"
+              decoding="async"
             />
           </div>
           <div className="brand-text">

@@ -23,9 +23,13 @@ export default function Loader({ onFinish }) {
       <div className="loader-center-content">
         <div className="loader-icon-wrapper">
           <img 
-            src="/assets/beastIcon.png" 
+            src="/assets/beastIcon.webp" 
             alt="La Bestia" 
             className="loader-beast-img"
+            width="120"
+            height="120"
+            loading="eager"
+            decoding="async"
           />
         </div>
       </div>

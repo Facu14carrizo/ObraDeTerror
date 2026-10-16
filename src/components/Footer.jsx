@@ -26,9 +26,13 @@ export default function Footer({ onOpenTickets }) {
           <div className="footer-col brand-col">
             <div className="footer-brand">
               <img 
-                src="/assets/beastIcon.png" 
+                src="/assets/beastIcon.webp" 
                 alt="La Bestia" 
                 className="brand-beast-icon" 
+                loading="lazy"
+                decoding="async"
+                width="46"
+                height="46"
               />
               <span className="font-cinzel footer-brand-name">LA PRUEBA DEL HAMBRE</span>
             </div>

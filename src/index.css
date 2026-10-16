@@ -75,19 +75,19 @@ body::after {
   z-index: 99;
 }
 
-/* Scrollbar personalizado terror */
-::-webkit-scrollbar {
-  width: 8px;
+/* Ocultar barra de scroll en PC y Mobile manteniendo scroll funcional */
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE y Edge clásico */
 }
-::-webkit-scrollbar-track {
-  background: #05070a;
-}
-::-webkit-scrollbar-thumb {
-  background: #4a0c0c;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--fire-red);
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera y WebKit Mobile */
+  width: 0 !important;
+  height: 0 !important;
 }
 
 /* Utilidades de Texto */
@@ -207,4 +207,26 @@ body::after {
 
 .pulse-fog {
   animation: pulseFog 8s ease-in-out infinite;
+}
+
+/* Optimizaciones de Rendimiento y Rendering Fluido a 60/120fps */
+img {
+  content-visibility: auto;
+}
+
+.horror-lore,
+.horror-experience,
+.horror-schedule,
+.horror-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
+}
+
+.scroll-driven,
+.lore-beast-stalker,
+.lore-beast-ambient-light,
+.camp-fire-particle {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }

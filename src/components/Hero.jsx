@@ -6,7 +6,7 @@ export default function Hero({ onOpenTickets }) {
   return (
     <section id="hero" className="horror-hero">
       {/* Fondo con la imagen del Flyer integrado en blur dramático */}
-      <div className="hero-backdrop" style={{ backgroundImage: `url('/La%20prueba%20del%20Hambre.jpeg')` }}></div>
+      <div className="hero-backdrop" style={{ backgroundImage: `url('/La%20prueba%20del%20Hambre.webp')` }}></div>
       <div className="hero-overlay"></div>
 
       <div className="hero-content">
@@ -16,9 +16,12 @@ export default function Hero({ onOpenTickets }) {
             <div className="flyer-card-wrapper">
               <div className="flyer-glow-flame"></div>
               <img 
-                src="/La%20prueba%20del%20Hambre.jpeg" 
+                src="/La%20prueba%20del%20Hambre.webp" 
                 alt="Flyer Oficial La Prueba del Hambre - Una Obra de Terror" 
                 className="flyer-poster-img"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
               <div className="flyer-caption">
                 <span className="font-creep">ESPECIAL DE HALLOWEEN</span>
