@@ -97,7 +97,7 @@ export default function Shows({ onBookShow }) {
                     className="btn-primary-horror show-btn"
                     onClick={(e) => {
                       e.stopPropagation();
-                      // Por el momento no hace nada (luego se vinculará a WhatsApp)
+                      handleSelect(show);
                     }}
                   >
                     <Ticket size={18} />
@@ -208,13 +208,24 @@ export default function Shows({ onBookShow }) {
                     </div>
 
                     <a
-                      href={`https://wa.me/5491132167594?text=${encodeURIComponent(`¡Hola! Quiero reservar ${ticketsCount} entradas para ver la obra 'La Prueba del Hambre' (Compañía La Colmena) este Sábado 24 de Octubre a las 20hs en la Fábrica Cultural. Mi nombre es ${formData.name || 'Espectador'}.`)}`}
+                      href={`https://wa.me/5491163704522?text=${encodeURIComponent(
+`*LA PRUEBA DEL HAMBRE 💀🔥*
+
+Reserva de entradas:
+
+📅 *Función:* ${selectedShow.date} (${selectedShow.time})
+📍 *Lugar:* Fábrica Cultural (Don Torcuato, Tigre)
+🎟️ *Cantidad de entradas:* ${ticketsCount} ${ticketsCount === 1 ? 'entrada' : 'entradas'} (General)
+👤 *Nombre:* ${formData.name.trim() || 'A coordinar'}
+${formData.email.trim() ? `✉️ *Email de contacto:* ${formData.email.trim()}\n` : ''}${formData.phone.trim() ? `📞 *Tel:* ${formData.phone.trim()}\n` : ''}
+Quedo a disposición para pagar con MercadoPago o efectivo en puerta`
+                      )}`}
                       target="_blank"
                       rel="noreferrer"
                       className="btn-primary-horror confirm-btn"
                     >
                       <Flame size={18} />
-                      <span>RESERVAR VÍA WHATSAPP OFICIAL</span>
+                      <span>CONTINUAR EN WHATSAPP</span>
                     </a>
                   </div>
                 </form>

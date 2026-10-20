@@ -47,7 +47,7 @@ export default function Footer({ onOpenTickets }) {
               <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               </a>
-              <a href="https://whatsapp.com" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+              <a href="https://wa.me/5491163704522?text=¡Hola!%20Quisiera%20hacer%20una%20consulta%20sobre%20la%20obra%20La%20Prueba%20del%20Hambre." target="_blank" rel="noreferrer" aria-label="WhatsApp">
                 <MessageCircle size={20} />
               </a>
             </div>
@@ -73,7 +73,7 @@ export default function Footer({ onOpenTickets }) {
               </li>
               <li>
                 <MessageCircle size={18} />
-                <span>Reservas WhatsApp: +54 9 11 3216-7594</span>
+                <span>Reservas WhatsApp: +54 9 11 6370-4522</span>
               </li>
               <li>
                 <Mail size={18} />
