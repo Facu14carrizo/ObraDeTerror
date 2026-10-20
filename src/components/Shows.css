@@ -259,6 +259,13 @@
   box-shadow: 0 0 12px rgba(255, 60, 20, 0.5);
 }
 
+.qty-helper-note {
+  font-size: 0.82rem;
+  color: #ffaa55;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
 .booking-summary-bar {
   display: flex;
   justify-content: space-between;
@@ -272,19 +279,23 @@
 
 .summary-left {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
-  color: #e2e8f0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.summary-lbl {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #94a3b8;
+  font-weight: 600;
 }
 
 .summary-total {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: #ffb703;
-}
-
-.summary-note {
-  font-size: 0.85rem;
-  color: #94a3b8;
+  line-height: 1.2;
 }
 
 .confirm-btn {
@@ -332,5 +343,15 @@
     flex-direction: column;
     gap: 16px;
     text-align: center;
+    padding: 20px 16px;
+  }
+
+  .summary-left {
+    align-items: center;
+  }
+
+  .confirm-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

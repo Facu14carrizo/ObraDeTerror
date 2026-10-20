@@ -195,16 +195,18 @@ export default function Shows({ onBookShow }) {
                           </button>
                         ))}
                       </div>
+                      <span className="qty-helper-note">
+                        {ticketsCount} {ticketsCount === 1 ? 'entrada seleccionada' : 'entradas seleccionadas'}
+                      </span>
                     </div>
                   </div>
 
                   <div className="booking-summary-bar">
                     <div className="summary-left">
-                      <span>Ubicación: </span>
+                      <span className="summary-lbl">Ubicación</span>
                       <strong className="summary-total font-cinzel">
                         Fábrica Cultural
                       </strong>
-                      <span className="summary-note">({ticketsCount} {ticketsCount === 1 ? 'entrada solicitada' : 'entradas solicitadas'})</span>
                     </div>
 
                     <a
